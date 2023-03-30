@@ -26,7 +26,7 @@ const taskUpdated = () => ({
 export const loadTasks = () => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:8080/task`)
+      .get(`https://lazy-plum-worm-fez.cyclic.app/task`)
       .then((res) => {
         dispatch(getTasks(res.data));
       })
@@ -39,7 +39,7 @@ export const loadTasks = () => {
 export const deleteTask = (id) => {
   return function (dispatch) {
     axios
-      .delete(`http://localhost:8080/task/${id}`)
+      .delete(`https://lazy-plum-worm-fez.cyclic.app/task/${id}`)
       .then((res) => {
         dispatch(taskDeleted());
         dispatch(loadTasks());
@@ -54,9 +54,8 @@ export const deleteTask = (id) => {
 export const addTask = (task, toast) => {
   return function (dispatch) {
     axios
-      .post(`http://localhost:8080/task/post`, task)
+      .post(`https://lazy-plum-worm-fez.cyclic.app/task/post`, task)
       .then((res) => {
-
         dispatch(taskAdded());
 
         toast({
@@ -68,7 +67,6 @@ export const addTask = (task, toast) => {
         });
 
         dispatch(loadTasks());
-
       })
       .catch((err) => {
         toast({
@@ -85,7 +83,7 @@ export const addTask = (task, toast) => {
 export const getSingleTasks = (id) => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:8080/task/${id}`)
+      .get(`https://lazy-plum-worm-fez.cyclic.app/task/${id}`)
       .then((res) => {
         console.log(res.data);
         dispatch(getsingleTask(res.data));
@@ -99,7 +97,7 @@ export const getSingleTasks = (id) => {
 export const updateTask = (task, id) => {
   return function (dispatch) {
     axios
-      .patch(`http://localhost:8080/task/${id}`, task)
+      .patch(`https://lazy-plum-worm-fez.cyclic.app/task/${id}`, task)
       .then((res) => {
         console.log(res.data);
         dispatch(taskUpdated());

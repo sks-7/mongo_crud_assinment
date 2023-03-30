@@ -62,7 +62,10 @@ const TaskTable = () => {
 
   const handalEmail = async () => {
     try {
-      await axios.post('http://localhost:8080/email/post', selectedRows);
+      await axios.post(
+        'https://lazy-plum-worm-fez.cyclic.app/email/post',
+        selectedRows
+      );
     } catch (e) {
       console.log('error', e);
 
